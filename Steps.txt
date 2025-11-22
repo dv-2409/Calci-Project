@@ -1,0 +1,31 @@
+Steps to reproduce intentional merge conflict:
+
+1. Initialize repo:
+   git init
+   git add .
+   git commit -m "Initial commit"
+
+2. Create a branch:
+   git checkout -b feature-update
+
+3. In feature-update: edit calculator.py - change return value in add()
+   e.g. return a + b  # commit this in feature-update
+   git add calculator.py
+   git commit -m "Update add in feature-update"
+   git push -u origin feature-update
+
+4. Switch to main and modify the same line in calculator.py:
+   git checkout main
+   edit same line to something conflicting, e.g. return a + b + 10
+   git commit -am "Change add in main"
+   git push origin main
+
+5. Merge feature-update into main:
+   git merge feature-update
+
+6. Resolve conflict: open the file, edit to the desired final version, then:
+   git add calculator.py
+   git commit -m "Resolve merge conflict in add function"
+   git push origin main
+
+Commands referenced in the lab: git merge, git diff, git status, git restore, git rebase
