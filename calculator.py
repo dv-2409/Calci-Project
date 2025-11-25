@@ -5,7 +5,7 @@ Used for Git merge conflict demonstration.
 
 def add(a, b):
 
-    return a + b 
+    return a + b + 20
 
 
 
